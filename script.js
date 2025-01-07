@@ -24,27 +24,76 @@ function getHumanChoice(){
     }
 }
 // create variables that will hold the score
-let humanScore = 0
-let computerScore = 0
 // create function that takes in returns of function getHumanChoice and getComputerChoice 
 // decide which one wins with if statements
 // increment eather the humanScore or computerScore
-function playRound(humanChoice,computerChoice){
-    if(computerChoice === "rock" && humanChoice === "scissors"){
-        console.log("You lose! Rock beats Scissors!")
-    }else if(computerChoice === "paper" && humanChoice === "rock"){
-        console.log("You lose! Paper beats Rock!")
-    }else if(computerChoice === "scissors" && humanChoice === "paper"){
-        console.log("You lose! Scissors beats Paper!")
-    }else if(computerChoice === "rock" && humanChoice === "paper"){
-        console.log("You Win! Paper beats Rock!")
-    }else if(computerChoice === "paper" && humanChoice === "scissors"){
-        console.log("You Win! Scissors beats Paper!")
-    }else if(computerChoice === "scissors" && humanChoice === "rock"){
-        console.log("You Win! Rock beats Scissors!")
-    }else{
-        console.log("It`s a draw!")
+
+// function playRound(humanChoice,computerChoice){
+//     if(computerChoice === "rock" && humanChoice === "scissors"){
+//         console.log("You lose! Rock beats Scissors!")
+//         computerScore++
+//     }else if(computerChoice === "paper" && humanChoice === "rock"){
+//         console.log("You lose! Paper beats Rock!")
+//         computerScore++
+//     }else if(computerChoice === "scissors" && humanChoice === "paper"){
+//         console.log("You lose! Scissors beats Paper!")
+//         computerScore++
+//     }else if(computerChoice === "rock" && humanChoice === "paper"){
+//         console.log("You Win! Paper beats Rock!")
+//         humanScore++
+//     }else if(computerChoice === "paper" && humanChoice === "scissors"){
+//         console.log("You Win! Scissors beats Paper!")
+//         humanScore++
+//     }else if(computerChoice === "scissors" && humanChoice === "rock"){
+//         console.log("You Win! Rock beats Scissors!")
+//         humanScore++
+//     }else{
+//         console.log("It`s a draw!")
+//     }
+// }
+
+
+// function playGame that calls on function playRound untill either human or computer has 5 points
+
+function playGame(){
+    let humanScore = 0
+    let computerScore = 0   
+    function playRound(humanChoice,computerChoice){
+        if(computerChoice === "rock" && humanChoice === "scissors"){
+            computerScore++
+            console.log("You lose! Rock beats Scissors!")
+        }else if(computerChoice === "paper" && humanChoice === "rock"){
+            computerScore++
+            console.log("You lose! Paper beats Rock!")
+        }else if(computerChoice === "scissors" && humanChoice === "paper"){
+            computerScore++
+            console.log("You lose! Scissors beats Paper!")
+        }else if(computerChoice === "rock" && humanChoice === "paper"){
+            humanScore++
+            console.log("You Win! Paper beats Rock!")
+        }else if(computerChoice === "paper" && humanChoice === "scissors"){
+            humanScore++
+            console.log("You Win! Scissors beats Paper!")
+        }else if(computerChoice === "scissors" && humanChoice === "rock"){
+            humanScore++
+            console.log("You Win! Rock beats Scissors!")
+        }else{
+            console.log("It`s a draw!")
+        }
     }
+        playRound(getHumanChoice(),getComputerChoice())
+        playRound(getHumanChoice(),getComputerChoice())
+        playRound(getHumanChoice(),getComputerChoice())
+        playRound(getHumanChoice(),getComputerChoice())
+        playRound(getHumanChoice(),getComputerChoice())
+
+        if (humanScore > computerScore){
+            console.log("You win!")
+        }else if (computerScore > humanScore){
+            console.log("You lose!")
+        }else{
+            console.log("It`s a draw!")
+        }
 }
 
-playRound(getHumanChoice(),getComputerChoice())
+playGame()
