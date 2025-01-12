@@ -7,13 +7,18 @@
 //         alert("that`s not right input rock paper or scissors") 
 //     }
 // }
+
+// create element in index
+// selec element in js with query selector
+// add textcontent to element with current score at the end of click event
+
 function playGame(){
     let humanScore = 0
     let computerScore = 0
-    let gameButtons = document.querySelector("div")
+    const gameButtons = document.querySelector("div")
+    const gameResult = document.querySelector("#show-result")
     gameButtons.addEventListener("click", (event) =>{
         let target = event.target
-        console.log(target.id)
         function getComputerChoice(){
             let pick = Math.random() * 100
             if(pick <= 33){ 
@@ -58,13 +63,16 @@ function playGame(){
                 playRound("scissors",getComputerChoice())
                 break;
         }
-            if (humanScore > computerScore){
-                console.log("You win!")
-            }else if (computerScore > humanScore){
-                console.log("You lose!")
-            }else{
-                console.log("It`s a draw!")
-            }
+        gameResult.textContent = `${humanScore} - ${computerScore}`
+        if (humanScore > computerScore && (humanScore === 5 || computerScore === 5)){
+            gameResult.textContent = `${humanScore} - ${computerScore} - Human wins`
+            humanScore = 0
+            computerScore = 0
+        }else if (computerScore > humanScore && humanScore === 5 || computerScore === 5){
+            `${humanScore} - ${computerScore} - Computer is the winner`
+            humanScore = 0
+            computerScore = 0
+        }
     })
 }
 playGame()
