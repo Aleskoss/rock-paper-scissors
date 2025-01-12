@@ -63,13 +63,13 @@ function playGame(){
                 playRound("scissors",getComputerChoice())
                 break;
         }
-        gameResult.textContent = `${humanScore} - ${computerScore}`
+        gameResult.textContent = `Human ${humanScore} - ${computerScore} Computer`
         if (humanScore > computerScore && (humanScore === 5 || computerScore === 5)){
             gameResult.textContent = `${humanScore} - ${computerScore} - Human wins`
             humanScore = 0
             computerScore = 0
         }else if (computerScore > humanScore && humanScore === 5 || computerScore === 5){
-            `${humanScore} - ${computerScore} - Computer is the winner`
+            gameResult.textContent = `${humanScore} - ${computerScore} - Computer is the winner`
             humanScore = 0
             computerScore = 0
         }
