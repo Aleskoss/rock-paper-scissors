@@ -8,4 +8,9 @@ function getComputerChoice(){
     return "Scissors"
   }
 }
-console.log(getComputerChoice())
+function getUserChoice(){
+  let userChoice = prompt("Rock Paper or Scissors, what will you choose to play?")
+  return userChoice
+}
+
+console.log(getUserChoice())
