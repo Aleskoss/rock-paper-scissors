@@ -11,3 +11,8 @@ Third project from odin project curriculum where i will demonstrate more of what
   if human choice(transferd to lower case so the choice is case insensitive) wins then it increments human score, else computer score 
 5.create a function that plays 5 rounds so invoke function playRound 5 times
   if humanScore > Computer score human wins else computer wins
+
+Adding a UI to rock paper scissor demonstarting what i have learned further in DOM, loops and array and JS array methods
+1.1. Create 3 buttons in html document
+1.2. add listeners to buttons through the use of bubbling by adding listener to document and than deciding through id what button was pressed
+1.3. change the return value of userChoice function, store the choice in userChoice variable and return it
