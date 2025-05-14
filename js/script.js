@@ -11,18 +11,33 @@ function getComputerChoice(){
 function playGame(){
   let computerScore = 0
   let humanScore = 0
+  let scoreBoard = document.querySelector("#score")
   document.addEventListener(`click`, (event) => {
     let target = event.target
     switch(target.id){
       case "rock":
         playRound(getComputerChoice,"rock")
+        showScoreBoard(computerScore,humanScore)
         break;
       case "paper":
         playRound(getComputerChoice,"paper")
+        showScoreBoard(computerScore,humanScore)
         break;
       case "scissors":
         playRound(getComputerChoice,"scissors")
+        showScoreBoard(computerScore,humanScore)
         break;
+    }
+    if(humanScore >= 5 || computerScore >= 5){
+      if(humanScore > computerScore){
+        scoreBoard.textContent = "Human is the winner"
+        computerScore = 0
+        humanScore = 0
+      }else{
+        scoreBoard.textContent = "Computer wins yaay!"
+        computerScore = 0
+        humanScore = 0
+      }
     }
   })
   function playRound(computerChoice, userChoice){
@@ -31,21 +46,15 @@ function playGame(){
     if(newUserChoice.toLowerCase() === "rock" && newComputerChoice === "scissors" 
     || newUserChoice.toLowerCase() === "paper" && newComputerChoice === "rock" 
     || newUserChoice.toLowerCase() === "scissors" && newComputerChoice === "paper"){
-      console.log("Human wins")
       humanScore += 1
     }else if(!(newUserChoice.toLowerCase() === "rock" && newComputerChoice === "scissors" 
     || newUserChoice.toLowerCase() === "paper" && newComputerChoice === "rock" 
     || newUserChoice.toLowerCase() === "scissors" && newComputerChoice === "paper")){
-      console.log("Computer wins")
       computerScore += 1
-    }else{
-      console.log("It`s a draw")
     }
   }
-  if(humanScore > computerScore){
-    console.log(`Human is the winner with a score of\nHuman ${humanScore} - ${computerScore} Computer`)
-  }else{
-    console.log(`Computer is the winner with a score of\nHuman ${humanScore} - ${computerScore} Computer`)
+    function showScoreBoard(computer,human){
+      scoreBoard.textContent = `player ${human} - ${computer} computer`
+    }
   }
-}
 playGame()
